@@ -1,5 +1,5 @@
 {
-  "name": "iugu-node-sdk",
+  "name": "@ronildo/iugu-node-sdk",
   "version": "0.1.1",
   "description": "Biblioteca não-oficial da API Iugu para Node.js feita em Typescript",
   "main": "lib/iugu.js",
@@ -9,14 +9,13 @@
     "doc": "npx typedoc --out ./docs --mode file ./lib",
     "build": "npx tsc -p ./tsconfig.json",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test",
-    "postversion": "git push && git push --tags"
+    "link": "npm link @ronildo/iugu-node-sdk"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/V1pi/iugu-node-sdk.git"
+    "url": "git+https://github.com/ronildo/iugu-node-sdk.git"
   },
-  "bugs:": "https://github.com/V1pi/iugu-node-sdk/issues",
+  "bugs:": "https://github.com/ronildo/iugu-node-sdk/issues",
   "keywords": [
     "iugu",
     "sdk",
@@ -25,10 +24,7 @@
   "files": [
     "lib"
   ],
-  "author": {
-    "name": "Vinicius Picanco",
-    "email": "viniciusspicanco@gmail.com"
-  },
+  "author": "Vinicius Picanco <viniciusspicanco@gmail.com>",
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@babel/parser": "^7.8.4",
@@ -57,5 +53,12 @@
   },
   "dependencies": {
     "axios": "^0.21.1"
+  },
+  "bugs": {
+    "url": "https://github.com/ronildo/iugu-node-sdk/issues"
+  },
+  "homepage": "https://github.com/ronildo/iugu-node-sdk#readme",
+  "directories": {
+    "test": "tests"
   }
 }

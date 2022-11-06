@@ -214,7 +214,7 @@ export interface IuguSubscription {
   credits?: number;
   credits_based?: boolean;
   recent_invoices?: any;
-  subitems?: Subitem[];
+  subitems?: IuguSubscriptionSubitem[];
   logs?: Log[];
   custom_variables?: any[];
 }
@@ -227,13 +227,11 @@ interface Features {
   feat: Feat;
 }
 
-interface Subitem {
-  id: string;
-  description: string;
-  quantity: number;
-  price_cents: number;
-  price: string;
-  total: string;
+interface IuguSubscriptionSubitem {
+  description?: string;
+  quantity?: number;
+  price_cents?: number;
+  recurrent?: boolean;
 }
 
 interface Log {

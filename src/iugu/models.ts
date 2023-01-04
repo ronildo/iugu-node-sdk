@@ -214,7 +214,7 @@ export interface IuguSubscription {
   credits?: number;
   credits_based?: boolean;
   recent_invoices?: any;
-  subitems?: IuguSubscriptionSubitem[];
+  subitems?: Subitem[];
   logs?: Log[];
   custom_variables?: any[];
 }
@@ -227,11 +227,13 @@ interface Features {
   feat: Feat;
 }
 
-interface IuguSubscriptionSubitem {
-  description?: string;
-  quantity?: number;
-  price_cents?: number;
-  recurrent?: boolean;
+interface Subitem {
+  id: string;
+  description: string;
+  quantity: number;
+  price_cents: number;
+  price: string;
+  total: string;
 }
 
 interface Log {
@@ -514,4 +516,65 @@ export interface IuguWithdrawRequest {
 export interface IuguCustomVariable {
   name?: string;
   value?: string;
+}
+
+export interface IuguListReturn<T> {
+  facets: Record<string, { _type: string; count: 0 }>;
+  totalItems: number;
+  items: T[];
+}
+
+export interface FinancialTransaction { 
+  id?: string;
+  description?: string;
+  scheduled_date?: string;
+  installment?: number;
+  status?: string;
+  invoice_id?: string;
+  customer_ref?: string;
+  total?: string;
+  taxes?: string;
+  client_share?: string;
+  commission?: string;
+  number_of_installments?: string;
+  created_at?: string;
+  updated_at?: string;
+  executed_date?: string;
+}
+
+export interface FinancialTransactionSimulationPerInstallments { 
+  id?: string;
+  description?: string;
+  scheduled_date?: string;
+  invoice_id?: string;
+  customer_ref?: string;
+  total?: string;
+  taxes?: string;
+  client_share?: string;
+  commission?: string;
+  number_of_installments?: string;
+  installment?: number;
+  advanced_value?: number;
+  advanced_fee?: number;
+  received_value?: number;
+}
+
+export interface FinancialTransactionExecutePerInstallments { 
+  transactions: [
+    { 
+      id?: number, 
+      advanced_value?: string;
+      advanced_fee?: string;
+      received_value?: string;
+    }
+  ],
+  total?: {
+    advanced_value?: string;
+    advanced_fee?: string;
+    received_value?: string;
+  },
+  errors?: {
+    transactions?: string,
+    internal_error?: string, 
+  }
 }
